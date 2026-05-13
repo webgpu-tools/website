@@ -77,4 +77,4 @@ See [WESL-js Examples] for example projects.
 
 [wesl]: https://www.npmjs.com/package/wesl
 [wesl-plugin]: https://www.npmjs.com/package/wesl-plugin
-[wesl-js examples]: https://github.com/wgsl-tooling-wg/wesl-js/tree/main/examples
+[wesl-js examples]: https://github.com/webgpu-tools/wesl-js/tree/main/examples

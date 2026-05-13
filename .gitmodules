@@ -1,4 +1,4 @@
 [submodule "wesl-spec"]
 	path = wesl-spec
-	url = https://github.com/wgsl-tooling-wg/wesl-spec.git
+	url = https://github.com/webgpu-tools/wesl-spec.git
 	update = merge

@@ -4,9 +4,9 @@ Resources for those interested in the internal design of WESL.
 
 ## Grammars
 
-- [lezer-wesl](https://github.com/wgsl-tooling-wg/wesl-js/tree/main/packages/lezer-wesl) —
+- [lezer-wesl](https://github.com/webgpu-tools/wesl-js/tree/main/packages/lezer-wesl) —
   Lezer grammar for WESL/WGSL, used by CodeMirror editors (including [wgsl-edit](wgsl-edit)).
-- [tree-sitter-wesl](https://github.com/wgsl-tooling-wg/tree-sitter-wesl) —
+- [tree-sitter-wesl](https://github.com/webgpu-tools/tree-sitter-wesl) —
   Tree-sitter grammar for WESL/WGSL, used by Neovim, Emacs, Zed, and other editors.
 
 ## Forthcoming Tools

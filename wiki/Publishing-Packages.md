@@ -140,7 +140,7 @@ This flag is ignored for multiBundle mode. (_default: "."_).
 
 ## Publishing a Package to [crates.io]
 
-See rust example [here](https://github.com/wgsl-tooling-wg/wesl-rs/tree/main/examples/random_wgsl)
+See rust example [here](https://github.com/webgpu-tools/wesl-rs/tree/main/examples/random_wgsl)
 
 [crates.io]: https://crates.io/
 [npm.js]: https://npmjs.com/

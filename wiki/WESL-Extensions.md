@@ -168,8 +168,8 @@ e.g. `MyGenerated::`.
 * in JavaScript/TypeScript, [Virtual Modules][9]
 * in Rust, [VirtualResolver][10]
 
-[1]: https://github.com/wgsl-tooling-wg/wesl-js
-[2]: https://github.com/wgsl-tooling-wg/wesl-rs
+[1]: https://github.com/webgpu-tools/wesl-js
+[2]: https://github.com/webgpu-tools/wesl-rs
 [6]: https://www.npmjs.com/
 [7]: https://crates.io/
 [8]: https://wesl-lang.dev/docs/JavaScript-Runtime-Linking.html#runtime-constants

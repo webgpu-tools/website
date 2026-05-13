@@ -62,4 +62,4 @@ See [wgsl-test](wgsl-test) for more on writing GPU tests.
 ## Links
 
 - [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=webgpu-tools.wgsl-studio)
-- [GitHub](https://github.com/wgsl-tooling-wg/wesl-js/tree/main/packages/wgsl-studio)
+- [GitHub](https://github.com/webgpu-tools/wesl-js/tree/main/packages/wgsl-studio)

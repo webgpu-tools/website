@@ -1,7 +1,7 @@
 import { toString, trailingSlash } from "@weborigami/async-tree";
 
-const specHref = `https://github.com/wgsl-tooling-wg/wesl-spec/blob/main/`;
-const wikiHref = `https://github.com/wgsl-tooling-wg/wesl-spec/wiki/`;
+const specHref = `https://github.com/webgpu-tools/wesl-spec/blob/main/`;
+const wikiHref = `https://github.com/webgpu-tools/wesl-spec/wiki/`;
 
 /**
  * Adjust links in markdown to meet our needs

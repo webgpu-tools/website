@@ -1,14 +1,14 @@
 ## Virtual modules and the `constants` module
 
-*related discussion: [#74](https://github.com/wgsl-tooling-wg/wesl-spec/issues/74)*
+*related discussion: [#74](https://github.com/webgpu-tools/wesl-spec/issues/74)*
 
-In many cases shader authors want to write generic shaders that can be specialized for different purposes and constraints. Sometimes, the specialization needs to happen at runtime (e.g., if it depends on the hardware/platform where the shader is executed). WGSL has a mechanism for such specialization: [`override` declarations](https://www.w3.org/TR/WGSL/#override-decls). But overrides do not cover all use-cases ([#74](https://github.com/wgsl-tooling-wg/wesl-spec/issues/74)).
+In many cases shader authors want to write generic shaders that can be specialized for different purposes and constraints. Sometimes, the specialization needs to happen at runtime (e.g., if it depends on the hardware/platform where the shader is executed). WGSL has a mechanism for such specialization: [`override` declarations](https://www.w3.org/TR/WGSL/#override-decls). But overrides do not cover all use-cases ([#74](https://github.com/webgpu-tools/wesl-spec/issues/74)).
 
 WESL has a mechanism called "Virtual Modules", which creates an importable module that does not exist on the filesystem but contains declarations defined during linker invocation. For convenience, the WESL linkers have a special API to generate a virtual module named `constants` and push const-declarations to it.
 
 ## Stripping (Dead Code Elimination)
 
-*related discussion: [#68](https://github.com/wgsl-tooling-wg/wesl-spec/issues/68)*
+*related discussion: [#68](https://github.com/webgpu-tools/wesl-spec/issues/68)*
 
 When your WESL linker bundles your shader files into one final WGSL output, it may remove unused declarations.
 Unused declarations are those not accessed by any entrypoint function or `const_assert`s (recursively).
@@ -21,7 +21,7 @@ it can indirectly cause bugs. Here are the things to keep in mind:
 
 ## Mangling
 
-*See also the [Name Mangling](https://github.com/wgsl-tooling-wg/wesl-spec/blob/main/NameMangling.md) discussion in the spec wiki*
+*See also the [Name Mangling](https://github.com/webgpu-tools/wesl-spec/blob/main/NameMangling.md) discussion in the spec wiki*
 
 Name mangling is a common [compiler practice](https://en.wikipedia.org/wiki/Name_mangling) of renaming declarations to avoid conflicts when two declarations have the same name.
 Don't be surprised if you see functions and structs renamed in the WGSL output.
@@ -73,7 +73,7 @@ Currently only the rust implementation of WESL supports incremental conditional 
 
 Module-scope `const_assert`s and directives are only included in the output WGSL if they are declared in the root module or in any module for which one declaration is included. Identical directives across modules are de-duplicated.
 
-There are additional rules ([#71](https://github.com/wgsl-tooling-wg/wesl-spec/issues/71)) for directives: 
+There are additional rules ([#71](https://github.com/webgpu-tools/wesl-spec/issues/71)) for directives: 
 * [`enable`](https://www.w3.org/TR/WGSL/#enable-extensions-sec) directives *must* be included in all modules that use a given extension. This way, the file is self-documenting.
 * The root module must repeat all `enable` directives included in referenced modules. (Only the root module has to do that)
 * [`requires`](https://www.w3.org/TR/WGSL/#language-extensions-sec) directives are optional in WGSL. Nonetheless we *recommend* library authors to spell `requires` directives in all modules using a language extension, and repeat them in the root module, exactly like the `enable` directives.

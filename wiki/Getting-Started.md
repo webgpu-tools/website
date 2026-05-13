@@ -17,7 +17,7 @@ If you are not a JavaScript/TypeScript or Rust developer,
 or if your build environment is unusual,
 come and talk to us on [Discord](https://discord.gg/5UhkaSu4dt)
 or open an issue on
-[wesl-spec](https://github.com/wgsl-tooling-wg/wesl-spec/issues/new).
+[wesl-spec](https://github.com/webgpu-tools/wesl-spec/issues/new).
 The WESL tools are flexible and embeddable.
 We'll be happy to help you set up WESL in your workflow.
 

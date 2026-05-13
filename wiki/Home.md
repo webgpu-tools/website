@@ -49,7 +49,7 @@ in editor applications and other tools.
 
 - [Getting Started with Rust](Getting-Started-Rust)
 - [Getting Started with JavaScript/TypeScript](Getting-Started-JavaScript)
-- [C bindings](https://github.com/wgsl-tooling-wg/wesl-rs/tree/main/crates/wesl-c) are available in the Rust implementation
+- [C bindings](https://github.com/webgpu-tools/wesl-rs/tree/main/crates/wesl-c) are available in the Rust implementation
 
 For other languages or unusual build setups, come talk to us.
 
@@ -57,6 +57,6 @@ _Using a coding agent? Refer your agent to [llms.txt](/llms.txt) for a concise d
 
 ## Get Involved
 
-We discuss on [Discord](https://discord.gg/5UhkaSu4dt) and on [GitHub](https://github.com/wgsl-tooling-wg) issues.
+We discuss on [Discord](https://discord.gg/5UhkaSu4dt) and on [GitHub](https://github.com/webgpu-tools) issues.
 Tell us about something that doesn't work smoothly for you in WGSL/WESL?
 Maybe we can fix it with tools or language extensions.

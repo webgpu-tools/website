@@ -456,6 +456,6 @@ All of these tools understand WESL's module system. Using WESL means your shader
 
 - npm (`wesl`): https://www.npmjs.com/package/wesl
 - crates.io (`wesl`): https://crates.io/crates/wesl
-- GitHub (JS tooling): https://github.com/wgsl-tooling-wg/wesl-js
-- GitHub (Rust tooling): https://github.com/wgsl-tooling-wg/wesl-rs
+- GitHub (JS tooling): https://github.com/webgpu-tools/wesl-js
+- GitHub (Rust tooling): https://github.com/webgpu-tools/wesl-rs
 - WGSL spec (base language): https://www.w3.org/TR/WGSL/

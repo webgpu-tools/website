@@ -1,6 +1,6 @@
 Some historical design discussions:
 
-* [conditional translation design](https://github.com/wgsl-tooling-wg/wesl-spec/blob/main/ConditionalTranslationDesign.md)
+* [conditional translation design](https://github.com/webgpu-tools/wesl-spec/blob/main/ConditionalTranslationDesign.md)
 * [import syntax discussion](https://hackmd.io/ljkByEcnQa2NdNLWed2M6Q)
 * [Visibility](/spec/Visibility)
 * [Name Mangling](/spec/NameMangling)

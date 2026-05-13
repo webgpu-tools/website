@@ -30,7 +30,7 @@ fn smootherstepQuarter() {
 ```
 
 See the
-[assertion functions reference](https://github.com/wgsl-tooling-wg/wesl-js/blob/main/packages/wgsl-test/API.md#assertion-functions)
+[assertion functions reference](https://github.com/webgpu-tools/wesl-js/blob/main/packages/wgsl-test/API.md#assertion-functions)
 for `expect`, `expectNear`, `expectNearV2f`, and more.
 
 ## Annotated Resources
@@ -107,7 +107,7 @@ test("blur shader matches snapshot", async () => {
 Update snapshots with `vitest -u`.
 
 See the
-[visual regression testing reference](https://github.com/wgsl-tooling-wg/wesl-js/blob/main/packages/wgsl-test/API.md#visual-regression-testing)
+[visual regression testing reference](https://github.com/webgpu-tools/wesl-js/blob/main/packages/wgsl-test/API.md#visual-regression-testing)
 for details.
 
 ## Testing Compute Shaders
@@ -150,7 +150,7 @@ const r = await testCompute({ device, src: `
 
 ## Links
 
-- [API Reference](https://github.com/wgsl-tooling-wg/wesl-js/blob/main/packages/wgsl-test/API.md)
-- [Examples](https://github.com/wgsl-tooling-wg/wesl-js/tree/main/examples)
+- [API Reference](https://github.com/webgpu-tools/wesl-js/blob/main/packages/wgsl-test/API.md)
+- [Examples](https://github.com/webgpu-tools/wesl-js/tree/main/examples)
 - [npm](https://www.npmjs.com/package/wgsl-test)
-- [GitHub](https://github.com/wgsl-tooling-wg/wesl-js/tree/main/packages/wgsl-test)
+- [GitHub](https://github.com/webgpu-tools/wesl-js/tree/main/packages/wgsl-test)

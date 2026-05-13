@@ -188,4 +188,4 @@ npx wgsl-edit shader.wgsl --port 3000 --no-open
 ## Links
 
 - [npm](https://www.npmjs.com/package/wgsl-edit)
-- [GitHub](https://github.com/wgsl-tooling-wg/wesl-js/tree/main/packages/wgsl-edit)
+- [GitHub](https://github.com/webgpu-tools/wesl-js/tree/main/packages/wgsl-edit)

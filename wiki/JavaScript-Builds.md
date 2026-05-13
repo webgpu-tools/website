@@ -74,7 +74,7 @@ However, if this option is configured, bundler plugins (?static as well as ?link
 
 See the
 [unbundled example](
-  https://github.com/wgsl-tooling-wg/wesl-js/blob/master/examples/wesl-unbundled)
+  https://github.com/webgpu-tools/wesl-js/blob/master/examples/wesl-unbundled)
 which uses the **[wesl]** library API directly.
 
 ## No Bundler Static Linking

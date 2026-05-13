@@ -387,4 +387,4 @@ wgsl-play::part(canvas) {
 ## Links
 
 - [npm](https://www.npmjs.com/package/wgsl-play)
-- [GitHub](https://github.com/wgsl-tooling-wg/wesl-js/tree/main/packages/wgsl-play)
+- [GitHub](https://github.com/webgpu-tools/wesl-js/tree/main/packages/wgsl-play)

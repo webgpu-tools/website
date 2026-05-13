@@ -3,7 +3,7 @@
 * At build-time, using a [build Script][1].
 * At run-time.
 
-These are the quick setup instructions. Read the [crate documentation](https://docs.rs/wesl/) and visit the [code samples](https://github.com/wgsl-tooling-wg/wesl-rs/tree/main/examples) for a more in-depth explanation.
+These are the quick setup instructions. Read the [crate documentation](https://docs.rs/wesl/) and visit the [code samples](https://github.com/webgpu-tools/wesl-rs/tree/main/examples) for a more in-depth explanation.
 
 ## Using `wesl-rs` at compile-time
 
@@ -50,5 +50,5 @@ Visit the [Reference](Reference) page for the complete documentation of WESL Ext
 
 
 [1]: https://doc.rust-lang.org/cargo/reference/build-scripts.html
-[2]: https://github.com/wgsl-tooling-wg/wesl-rs
+[2]: https://github.com/webgpu-tools/wesl-rs
 [3]: https://docs.rs/crate/wesl-cli/latest

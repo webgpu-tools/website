@@ -7,7 +7,7 @@ You will need an LTS version of [Node.js](https://nodejs.org) and [pnpm](https:/
 1. Clone this repository and install dependencies:
 
    ```sh
-   git clone https://github.com/wgsl-tooling-wg/website.git
+   git clone https://github.com/webgpu-tools/website.git
    ```
 
    ```sh
@@ -17,7 +17,7 @@ You will need an LTS version of [Node.js](https://nodejs.org) and [pnpm](https:/
 
 1. Setup the spec submodule
 
-   This repository includes the [WESL Spec](https://github.com/wgsl-tooling-wg/wesl-spec) content as a git submodule. (User-facing wiki content lives directly in `wiki/`.)
+   This repository includes the [WESL Spec](https://github.com/webgpu-tools/wesl-spec) content as a git submodule. (User-facing wiki content lives directly in `wiki/`.)
 
    Initialize the submodule.
 
@@ -61,7 +61,7 @@ The site uses the [Origami](https://weborigami.org) programming language to: a) 
 The site pulls markdown content from two sources:
 
 1. The [`wiki/`](./wiki) directory in this repo. These are the user-facing docs (Getting Started, Writing Shaders, etc.) and are mapped to the `/docs/` area of the site by [src/site.ori](./src/site.ori).
-1. The [WESL Spec](https://github.com/wgsl-tooling-wg/wesl-spec) repository, registered as a git submodule at `wesl-spec/`. This is information primarily for WESL implementors and advanced users; edits to the spec are gated via pull requests.
+1. The [WESL Spec](https://github.com/webgpu-tools/wesl-spec) repository, registered as a git submodule at `wesl-spec/`. This is information primarily for WESL implementors and advanced users; edits to the spec are gated via pull requests.
 
 **If you want to add a new page to the docs area:** add a markdown file to `wiki/` and add a nav link in `src/nav.html`. For the spec area, open a PR against the `wesl-spec` repo.
 
