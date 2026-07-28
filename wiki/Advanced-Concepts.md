@@ -21,7 +21,7 @@ it can indirectly cause bugs. Here are the things to keep in mind:
 
 ## Mangling
 
-*See also the [Name Mangling](https://github.com/webgpu-tools/wesl-spec/blob/main/NameMangling.md) discussion in the spec wiki*
+*See also [Name Mangling](https://github.com/webgpu-tools/wesl-spec/blob/main/NameMangling.md) in the spec*
 
 Name mangling is a common [compiler practice](https://en.wikipedia.org/wiki/Name_mangling) of renaming declarations to avoid conflicts when two declarations have the same name.
 Don't be surprised if you see functions and structs renamed in the WGSL output.

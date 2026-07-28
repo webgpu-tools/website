@@ -60,7 +60,7 @@ By default, WESL looks for `.wesl` and `.wgsl` files in a `./shaders` directory.
 
 Optionally, create a `wesl.toml` file alongside `package.json`
 to customize shader paths, dependencies, and other settings.
-See the [wesl.toml reference](WeslToml) for details.
+See the [wesl.toml reference](/spec/WeslToml.html) for details.
 
 ## Next Steps
 

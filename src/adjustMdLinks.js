@@ -27,15 +27,42 @@ const wikiHref = `https://github.com/webgpu-tools/wesl-spec/wiki/`;
 export default function adjustMdLinks(input, basePath = "") {
   const markdown = toString(input);
   // Matches markdown links of the form `[link](href)`
-  const linkRegex = /\[(?<text>[^\]]+)\]\((?<href>[^)]+)\)/g;
-  return markdown.replace(linkRegex, (match, text, href, offset) => {
-    // Test to see if the link is internal or external
-    const url = fakeUrl(href, match);
-    const internal = url.protocol === "fake:";
-    return internal
-      ? adjustInternalLink(match, text, href, basePath)
-      : adjustExternalLink(match, text, href);
-  });
+  const inlineLinkRegex = /\[(?<text>[^\]]+)\]\((?<href>[^)]+)\)/g;
+  // Matches reference-style link definitions of the form `[label]: href`,
+  // excluding footnote definitions like `[^1]: ...`
+  const refDefRegex = /^(?<prefix>\[(?!\^)[^\]]+\]:[ \t]*)(?<href>\S+)/gm;
+  return markdown
+    .replace(inlineLinkRegex, (match, text, href) => {
+      const adjusted = adjustHref(href, basePath, match);
+      return adjusted ? `[${text}](${adjusted})` : match;
+    })
+    .replace(refDefRegex, (match, prefix, href) => {
+      const adjusted = adjustHref(href, basePath, match);
+      return adjusted ? `${prefix}${adjusted}` : match;
+    });
+}
+
+/**
+ * Adjust a single link target, returning the new href, or null if the link
+ * should be left unchanged.
+ */
+function adjustHref(href, basePath, link) {
+  // Split off any `#anchor` fragment and adjust the path portion
+  const hashIndex = href.indexOf("#");
+  const anchor = hashIndex >= 0 ? href.slice(hashIndex) : "";
+  const path = hashIndex >= 0 ? href.slice(0, hashIndex) : href;
+  if (path === "") {
+    // Same-page anchor link
+    return null;
+  }
+
+  // Test to see if the link is internal or external
+  const url = fakeUrl(path, link);
+  const internal = url.protocol === "fake:";
+  const adjustedPath = internal
+    ? adjustInternalPath(path, basePath)
+    : adjustExternalPath(path);
+  return adjustedPath ? adjustedPath + anchor : null;
 }
 
 /** Create a url so we can test whether an href is relative or absolute */
@@ -53,34 +80,33 @@ function adjustExtension(href) {
   return href.replace(/\.md$/, ".html");
 }
 
-function adjustExternalLink(match, text, href) {
-  let adjustedHref;
-  if (href.startsWith(specHref)) {
+function adjustExternalPath(path) {
+  if (path.startsWith(specHref)) {
     // External link to the spec; map to spec/ area
-    adjustedHref = adjustExtension(href.replace(specHref, `/spec/`));
-  } else if (href.startsWith(wikiHref)) {
+    return adjustExtension(path.replace(specHref, `/spec/`));
+  } else if (path.startsWith(wikiHref)) {
     // External link to the wiki; map to docs/ area
-    adjustedHref = adjustExtension(href.replace(wikiHref, `/docs/`));
+    return adjustExtension(path.replace(wikiHref, `/docs/`));
   }
-  return adjustedHref ? `[${text}](${adjustedHref})` : match;
+  return null;
 }
 
-function adjustInternalLink(match, text, href, basePath) {
-  // Skip if the path ends in a slash or contains a `#` anchor
-  if (href.endsWith("/") || href.includes("#")) {
-    return match;
+function adjustInternalPath(path, basePath) {
+  // Skip directory links
+  if (path.endsWith("/")) {
+    return null;
   }
 
-  if (!href.match(/(\.[a-z]+)$/i)) {
+  if (!path.match(/(\.[a-z]+)$/i)) {
     // No extension; append .html
-    href += ".html";
+    path += ".html";
   } else {
-    href = adjustExtension(href);
+    path = adjustExtension(path);
   }
 
-  if (basePath && !href.startsWith("/")) {
-    href = trailingSlash.add(basePath) + href;
+  if (basePath && !path.startsWith("/")) {
+    path = trailingSlash.add(basePath) + path;
   }
 
-  return `[${text}](${href})`;
+  return path;
 }

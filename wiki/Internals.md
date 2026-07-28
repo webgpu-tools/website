@@ -20,20 +20,10 @@ Resources for those interested in the internal design of WESL.
 ## Reference
 
 - [Glossary](/spec/GLOSSARY.html) — Key terms and definitions
+- [Name Mangling](/spec/NameMangling.html) — How declarations are renamed in output WGSL
+- [Versioning](/spec/Versioning.html) — Edition versioning strategy
 
 ## Design Documents
 
-- [Conditional Translation Design](/spec/ConditionalTranslationDesign.html) —
-  Design rationale for structured `@if` vs unstructured `#ifdef`
-- [Visibility](/spec/Visibility.html) — Module visibility rules
-- [Name Mangling](/spec/NameMangling.html) — How declarations are renamed in output WGSL
-- [Versioning](/spec/Versioning.html) — Edition versioning strategy
-- [Packaging](/spec/Packaging.html) — Package format design
-
-## Historical Discussions
-
-- [Import syntax discussion](https://hackmd.io/ljkByEcnQa2NdNLWed2M6Q)
-- [Community use of WGSL string interpolation](https://hackmd.io/mz1upr_YSu62nLftLoJBow)
-- [Plugin design ideas](https://hackmd.io/gXCVcz_NRVm8uOJzvrKCjg)
-- [Old generics discussion](https://docs.google.com/document/d/1ITV3MfQly0xszrKv_fURpcz-NdhONYl_-EHxyPL6w-I)
-- [Packaging design](https://docs.google.com/document/d/15keY7Ktj4zoAiFlEGosxVnCqkR48zVnEPRcVe9NFDZY)
+See [Design Docs](Design-Discussions) for design rationale documents
+and historical design discussions.

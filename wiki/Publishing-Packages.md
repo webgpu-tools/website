@@ -1,3 +1,9 @@
+Shader packages make WESL code reusable by other packages and applications,
+typically via [npm.js] (JavaScript) and [crates.io] (Rust).
+This page covers the practical steps for publishing;
+see the [Packaging spec](/spec/Packaging.html) for the details of
+package naming, semver dependency unification, and package visibility.
+
 ## Naming Conventions
 
 - Prefer `_` (underscore) over `-` (dash) in package names.
@@ -146,4 +152,3 @@ See rust example [here](https://github.com/webgpu-tools/wesl-rs/tree/main/exampl
 [npm.js]: https://npmjs.com/
 [wesl-packager]: https://www.npmjs.com/package/wesl-packager
 [WeslBundle]: https://js.wesl-lang.dev/interfaces/WeslBundle
-[wesl.toml]: getting-started-javascript#wesltoml

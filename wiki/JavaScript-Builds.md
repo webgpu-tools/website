@@ -40,7 +40,7 @@ The plugin optionally accepts `{ weslToml: "./path/to/wesl.toml" }` to specify a
 ### Controlling Dynamic Linking
 
 The `link()` API enables runtime control of WESL shader transpilation.
-See [Runtime Linking Options](Getting-Started-JavaScript#runtime-linking-options).
+See [Runtime Linking](JavaScript-Runtime-Linking).
 
 ### Controlling Static Bundler Builds
 

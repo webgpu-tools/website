@@ -22,6 +22,7 @@ Fetch these for more detail on specific topics:
 
 **Spec**
 - [Import spec](https://wesl-lang.dev/spec/Imports) — full import resolution rules and edge cases
+- [Visibility spec](https://wesl-lang.dev/spec/Visibility) — `public`/`private` visibility levels and re-exports
 - [Conditional Translation spec](https://wesl-lang.dev/spec/ConditionalTranslation) — `@if` rules and semantics
 - [wesl.toml spec](https://wesl-lang.dev/spec/WeslToml) — configuration file reference
 - [Name Mangling spec](https://wesl-lang.dev/spec/NameMangling) — how declarations are renamed in output WGSL

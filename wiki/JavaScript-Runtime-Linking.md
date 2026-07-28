@@ -4,7 +4,7 @@ adapted to the user's application environment:
 - Tune shaders based on runtime checks of GPU capabilities
 - Customize shaders according to web application settings
 - Augment shaders with frameworks that dynamically generate shader fragments,
-- Extend the linker itself with [wesl-js extensions](wesl-js-extensions)
+- Extend the linker itself with wesl-js extensions
 
 The `link()` API offers options for runtime control of WESL shader transpilation.
 

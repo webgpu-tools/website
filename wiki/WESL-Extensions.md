@@ -5,6 +5,8 @@ WESL adds features to WGSL:
 published to [npm][6] (JavaScript) and [crates.io][7] (Rust).
 * **Conditional Translation** is a mechanism to conditionally
 include/exclude chunks of code. Similar to `#ifdef` (C/C++) or `#[cfg]` (Rust).
+* **Visibility** _(newly specified)_ controls which declarations
+other modules and packages can access.
 * **Const Injection** _(experimental)_
 * **Virtual Modules** _(experimental)_
 
@@ -105,6 +107,34 @@ Function `const_assert` statements are included only if
 that function is transitively referenced from the root module.
 
 See the [Imports spec](https://wesl-lang.dev/spec/Imports) for further details.
+
+## Visibility
+
+Visibility controls which other modules can reference a declaration.
+Every WESL declaration has one of three visibility levels:
+
+* `public` — visible from any package.
+* *package* (the default) — visible from any module in the same package.
+* `private` — visible only within the declaring module.
+
+```rs
+fn helper() { ... }                     // package visible (the default)
+public fn dot2(v: vec2f) -> f32 { ... } // visible to other packages
+private const scratch_size: u32 = 64;   // visible only in this module
+```
+
+Small applications generally need no visibility keywords —
+unmarked declarations are visible throughout the package.
+Library authors mark their API `public`,
+and anyone can use `private` to keep implementation details
+within a single module.
+
+### Further Visibility Details
+
+Visibility is newly specified;
+check your linker's release notes for implementation status.
+See the [Visibility spec](https://wesl-lang.dev/spec/Visibility) for further details,
+including re-exports (`public import`) and pipeline visibility.
 
 ## `@if` attribute
 
