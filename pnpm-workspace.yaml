@@ -1,2 +1,7 @@
 packages:
   - "presentations/*"
+allowBuilds:
+  esbuild: true
+  sharp: true
+  vue-demi: true
+  workerd: true
