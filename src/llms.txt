@@ -1,4 +1,4 @@
-# WESL (WebGPU Enanced Shading Language)
+# WESL (WebGPU Extended Shading Language)
   
 > WESL is a fully backward-compatible strict superset of WGSL (WebGPU Shading Language) that adds a module import system, conditional compilation, and package support. Current edition: `2026_pre`. Implementations: JS/TS (`wesl` npm) and Rust (`wesl-rs` crate).
 
@@ -22,7 +22,7 @@ Fetch these for more detail on specific topics:
 
 **Spec**
 - [Import spec](https://wesl-lang.dev/spec/Imports) — full import resolution rules and edge cases
-- [Visibility spec](https://wesl-lang.dev/spec/Visibility) — `public`/`private` visibility levels and re-exports
+- [Visibility spec](https://wesl-lang.dev/spec/Visibility) — `public`/`private` visibility levels and re-exports (not yet implemented in linkers)
 - [Conditional Translation spec](https://wesl-lang.dev/spec/ConditionalTranslation) — `@if` rules and semantics
 - [wesl.toml spec](https://wesl-lang.dev/spec/WeslToml) — configuration file reference
 - [Name Mangling spec](https://wesl-lang.dev/spec/NameMangling) — how declarations are renamed in output WGSL
@@ -122,6 +122,8 @@ fn main() {
 | `super::` | Parent module |
 | `constants::` | Host-injected constants from JS/Rust |
 
+**Wildcard imports are not yet implemented:** the spec defines wildcard imports (`import package::utils::*;`), but the shipped linkers do not accept `*` in import paths — import items by name.
+
 **External package naming:** npm name is sanitized for use as a module prefix — hyphens become underscores, `@` is removed, `/` becomes `__`. Examples:
 - `random_wgsl` → `random_wgsl::`
 - `@foobar/shader-utils` → `foobar__shader_utils::`
@@ -139,7 +141,7 @@ shaders/sun_atmo.wesl         → package::sun_atmo
 
 **Note:** Hyphens and `@` symbols are not valid in WESL identifiers. File name hyphens are converted to underscores in the module path: `sun-atmo.wesl` → `package::sun_atmo`.
 
-Imports are resolved left-to-right: given `import foo::bar::Baz`, the linker checks `foo.wesl` for a `bar` element, or a `foo/bar.wesl` file for a `Baz` element.
+In an import path, the segments before the final one name the module file, and the final segment names a declaration inside that module: `import package::utils::helper::rgb2hsv` resolves to the `rgb2hsv` declaration in `utils/helper.wesl`. A path may also end at a module, as in `import super::util;`.
 
 ## Conditional Compilation
 
@@ -165,6 +167,16 @@ struct Ray {
 
 Conditions are provided by the host at link time (build-time or runtime). Unused branches are stripped from the output WGSL.
 
+## Visibility (specified, not yet implemented)
+
+The WESL spec defines three visibility levels for declarations, written as a keyword before the declaration (`public fn dot2(v: vec2f) -> f32 { ... }`):
+
+- `public` — visible from any package
+- *package* (the default, no keyword) — visible throughout the declaring package
+- `private` — visible only within the declaring module
+
+**Do not emit `public`/`private` visibility keywords or `public import` re-exports yet** — the shipped linkers do not accept them. Unmarked declarations are visible throughout the package, which is what current linkers implement. See the [Visibility spec](https://wesl-lang.dev/spec/Visibility) for the full design.
+
 ## wesl.toml Configuration
 
 `wesl.toml` is optional for apps — the tooling will work without it using defaults. If present, all fields are optional except `edition`. Place it at the project root (next to `package.json`):
@@ -174,7 +186,6 @@ edition = "2026_pre"
 root = "./shaders"
 include = ["./shaders/**/*.w[eg]sl"]
 exclude = []
-dependencies = ["random_wgsl"]
 package-manager = "npm"
 ```
 
@@ -184,8 +195,9 @@ package-manager = "npm"
 | `root` | no | Base directory for module resolution |
 | `include` | no | Glob patterns for shader files to process |
 | `exclude` | no | Glob patterns to exclude |
-| `dependencies` | no | npm/cargo package names of WESL shader libraries (autodetected from `node_modules` if omitted) |
 | `package-manager` | no | `"npm"` or `"cargo"` |
+
+**Shader library dependencies:** do not list dependencies in `wesl.toml` — the spec's `dependencies` format is still changing and is not implemented. wesl-js autodetects installed shader packages from `node_modules`; wesl-rs declares them in `build.rs`.
 
 ## Vite Plugin Setup
 
