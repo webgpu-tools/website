@@ -34,6 +34,9 @@
       ...Tree.mapExtension(wesl-spec, ".md->.html", { value: specPage.ori })
       // Assets for spec pages so assets links still work
       assets/ = wesl-spec/assets
+      // License texts served as plain text (linked from the spec README)
+      LICENSE-MIT.txt = wesl-spec/LICENSE-MIT
+      LICENSE-APACHE.txt = wesl-spec/LICENSE-APACHE
     }
   }
 

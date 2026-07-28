@@ -1,15 +1,16 @@
 // The set of things we want to do to markdown, in this order:
 //
-// 1. Adjust links between spec and docs areas
-// 2. Convert markdown to HTML
-// 3. Add header links
-// 4. Strip stray <p> tags from script blocks and web components
+// 1. Point license links at the .txt files served by the site
+// 2. Adjust links between spec and docs areas
+// 3. Convert markdown to HTML
+// 4. Add header links
+// 5. Strip stray <p> tags from script blocks and web components
 //
 (markdown, basePath) =>
   fixHtmlOutput.js(
     headerLinks.js(
       mdHtml.js(
-        adjustMdLinks.js(markdown, basePath)
+        adjustMdLinks.js(licenseLinks.js(markdown), basePath)
       )
     )
   )
