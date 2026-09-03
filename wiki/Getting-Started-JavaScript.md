@@ -38,13 +38,14 @@ conditional compilation, virtual modules, const injection, [wgsl-edit](wgsl-edit
 
 ```ts
 /// <reference types="wesl-plugin/suffixes" />
-import { link, createWeslDevice } from "wesl";
+import { link, createShaderModule, makeWeslDevice } from "wesl";
 import appWesl from "../shaders/app.wesl?link";
 
 async function example() {
-  const device = createWeslDevice(await navigator.gpu.requestAdapter());
+  const adapter = await navigator.gpu.requestAdapter();
+  const device = makeWeslDevice(await adapter.requestDevice());
   const linked = await link(appWesl);
-  const shaderModule = linked.createShaderModule(device, {});
+  const shaderModule = createShaderModule(linked, device, {});
 }
 ```
 
